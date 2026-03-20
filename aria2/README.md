@@ -6,6 +6,20 @@
 docker pull xuanyan/aria2:latest
 ```
 
+## Build and push (amd64 + arm64)
+
+> 从仓库根目录执行（此 README 位于 `aria2/` 子目录）。
+
+```bash
+docker buildx build \
+  --platform linux/amd64,linux/arm64 \
+  -t xuanyan/aria2:latest \
+  -t xuanyan/aria2:1.37.0 \
+  --push \
+  -f aria2/Dockerfile \
+  .
+```
+
 ## Run (amd64 + arm64)
 
 > Magnet / BT / DHT 需要 UDP 端口映射。请确保 `51413/udp` 对外可达。
